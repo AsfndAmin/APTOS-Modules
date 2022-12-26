@@ -1,0 +1,33 @@
+
+
+
+
+module BMDCOIN::bmd_coin {
+    struct BMDCOIN {}
+
+    fun init_module(sender: &signer) {
+        aptos_framework::managed_coin::initialize<BMDCOIN>(
+            sender,
+            b"BMD Coin",
+            b"BMDC",
+            6,
+            false,
+        );
+    }
+}
+
+  --function-id '0x498d8926f16eb9ca90cab1b3a26aa6f97a080b3fcbe6e83ae150b7243a00fb68::devnet_coins::mint_to_wallet' --type-args '0x498d8926f16eb9ca90cab1b3a26aa6f97a080b3fcbe6e83ae150b7243a00fb68::devnet_coins::DevnetUSDT' --args u64:2000000000000  --gas-unit-price 100 --max-gas 10000
+
+
+Running
+ ./aptos move run  --function-id '0x280010ab279b9e15393980e0f7b1011163ef4dbac7ad01fcdc893681643e34d1::bmd_coin::mint' --type-args '0x280010ab279b9e15393980e0f7b1011163ef4dbac7ad01fcdc893681643e34d1::bmd_coin::BMDCOIN' --args address:0x280010ab279b9e15393980e0f7b1011163ef4dbac7ad01fcdc893681643e34d1 u64:2000000000000
+
+To register
+ ./aptos move run  --function-id '0x280010ab279b9e15393980e0f7b1011163ef4dbac7ad01fcdc893681643e34d1::bmd_coin::register' --type-args '0x280010ab279b9e15393980e0f7b1011163ef4dbac7ad01fcdc893681643e34d1::bmd_coin::BMDCOIN' 
+
+Transfer coins
+./aptos move run  --function-id '0x1::coin::transfer' --type-args '0x280010ab279b9e15393980e0f7b1011163ef4dbac7ad01fcdc893681643e34d1::bmd_coin::BMDCOIN' --args address:0xd66e8ccdbb785c3ac50600ddd0eedbd5aef01a88d5a52ed6d2ccf7693a0674f6 u64:1000000000000 
+
+Burn
+./aptos move run  --function-id '0x280010ab279b9e15393980e0f7b1011163ef4dbac7ad01fcdc893681643e34d1::bmd_coin::burn' --type-args '0x280010ab279b9e15393980e0f7b1011163ef4dbac7ad01fcdc893681643e34d1::bmd_coin::BMDCOIN' --args  u64:100000000000
+

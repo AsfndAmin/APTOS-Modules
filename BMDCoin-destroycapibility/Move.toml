@@ -1,0 +1,8 @@
+[package]
+name = 'aptoscoin'
+version = '1.0.1'
+[dependencies]
+AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-framework/", rev = "devnet" }
+
+[addresses]
+BMDCOIN2 = "0x8886e1cc704ca7473da12336aee618abb961c04a288ea939b290bdfbfc694e23"
